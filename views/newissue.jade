@@ -1,0 +1,9 @@
+extends layout
+
+block content
+  h1= title
+  form#formAddIssue(name="addissue",method="post",action="/addissue")
+    input#inputTeam(type="text",placeholder="Team",name="team")
+    input#inputIssue(type="text", placeholder="Issue Description", name="issuedesc")
+    input#inputAccount(type="text", placeholder="Account Num", name="account")
+    button#btnSubmit(type="submit") submit
