@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1.
+    Issue IDs
+  ul
+    each issue, i in issues
+      li
+        p= issue.team
+      
