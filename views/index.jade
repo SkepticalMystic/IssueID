@@ -1,6 +1,7 @@
 extends layout
 
 block content
+<<<<<<< HEAD
 
   div(ng-app="IssueID" ng-controller="issueCtrl" layout="column")
     section(layout="row" flex ng-cloak)
@@ -19,6 +20,30 @@ block content
               p {{x.issue}}
    
             
+=======
+   
+  div(ng-app="IssueID" ng-controller="issueCtrl")
+    h1 A list
+    ul
+      li(ng-repeat="issue in myIssues") 
+        p {{issue.team}}
+    
+  div
+    ul
+      each issue, i in issues
+        li
+          p= issue.team
+      
+  // Angular Libraries
+  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js")
+  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js")
+  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js")
+  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js")
+    
+  // Angular Material Library
+  script(src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js")
+  
+>>>>>>> 393786544b1c31f9eabcbc98462d78bb2ae07bb1
   // Angular Controllers
   script(src="javascripts/controller.js")
   
