@@ -22,7 +22,7 @@ router.get('/issues', function(req, res) {
     var db = req.db;
     var collection = db.get('Issues');
     collection.find({}, {}, function(e,docs){
-	res.render('issues', {
+	res.json({
 	    "issues" : docs
 	});
     });

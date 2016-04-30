@@ -1,28 +1,24 @@
 extends layout
 
 block content
+
+  div(ng-app="IssueID" ng-controller="issueCtrl" layout="column")
+    section(layout="row" flex ng-cloak)
+      md-sidenav(class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')")
+        md-toolbar(class="md-theme-indigo")
+          h1#md-toolbar-tools Select:
+        ul
+          li
+            h2 Issues
+            h2 Add Issues
+            h2 View Reports
+      md-content(layout-padding)
+        div
+          ul
+            li(ng-repeat="x in myIssues") 
+              p {{x.issue}}
    
-  div(ng-app="IssueID" ng-controller="issueCtrl")
-    h1 A list
-    ul
-      li(ng-repeat="issue in myIssues") 
-        p {{issue.team}}
-    
-  div
-    ul
-      each issue, i in issues
-        li
-          p= issue.team
-      
-  // Angular Libraries
-  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js")
-  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js")
-  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js")
-  script(src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js")
-    
-  // Angular Material Library
-  script(src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js")
-  
+            
   // Angular Controllers
   script(src="javascripts/controller.js")
   
