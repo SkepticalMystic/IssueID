@@ -57,9 +57,13 @@ router.post('/addissue', function(req, res){
 	    res.send("There was a problem adding the information to the DB.");
 	}else {
 	    // And forward to success page
-	    res.redirect("issues");
+	    res.redirect("/");
 	}
     });
 });
-    
+
+router.get('*', function(req, res){
+	res.status(400);
+	res.render('error', {status: 'Error 404 page not found' });
+});
 module.exports = router;
