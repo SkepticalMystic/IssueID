@@ -8,3 +8,5 @@ data
 /views/issues.jade~
 /views/index.jade~
 /public/javascripts/controller.js~
+/public/.#issues.html
+/public/issues.html~
