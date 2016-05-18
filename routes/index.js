@@ -17,6 +17,11 @@ router.get('/', function(req, res, next) {
     });
 });
 
+router.get('/partials/:name', function(req, res){
+    var name = req.params.name;
+    res.render('partials/' + name);
+});
+
 /* GET DB Connect */
 router.get('/issues', function(req, res) {
     var db = req.db;

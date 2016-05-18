@@ -10,3 +10,4 @@ data
 /public/javascripts/controller.js~
 /public/.#issues.html
 /public/issues.html~
+/views/backup_index.jade

@@ -4,48 +4,21 @@ block content
   md-content
     md-toolbar
       div(class="md-toolbar-tools")
-        md-button(class="md-icon-button")
-          md-icon(md-svg-icon="img/hamburger.svg")
         h2="Issue ID Tracker"
-  md-tabs(md-dynamic-height md-border-bottom)
-    md-tab(label="Home")
-      div(layout="row", layout-wrap, layout_align="center center")
-        md-card(flex="75")
-          md-card-title
-            h2="Current Issues:"
-          md-card-content
-            md-list
-              md-list-item(class="md-2-line", ng-repeat="x in myIssues")
-                div(class="md-list-item-text")
-                  h4 {{x.issue}}
-                  md-input-container
-                    label="Account Number"
-                    input(type="text")
-                md-divider(ng-if="!$last")
+    div(layout="row" ng-cloak) 
+      md-sidenav(class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')")
+        md-toolbar(class="md-theme-blue")
+          h2#md-toolbar-tools Teams
+          md-list
+            md-list-item(class="md-2-line", ng-repeat="x in myIssues | unique: 'team'")
+              div(class="md-list-item-text")
+                h4: a(href="/issuelist/{{x.team}}") {{x.team}}
+              md-divider(ng-if="!$last")
+          
+      md-content
+        div(ng-view)
 
-    md-tab(label="Add Issue")
-      div(layout="row", layout-align="center center")
-        md-content(class="layout")
-          md-card
-            md-card-title(layout="row", layout-align="center center")
-              h1= "Add New Issue"
-            md-card-content
-              form#formAddIssue(name="addissue",method="post",action="/addissue")
-                md-input-container
-                  input#inputTeam(type="text",placeholder="Team",name="team", required)
-                md-input-container
-                  input#inputAccount(type="text", placeholder="Account Number", name="account", required)
-                br
-                md-input-container(class="md-block")
-                  label="Issue Description"
-                  textarea#inputIssue(name="issuedesc", rows="10",  md-select-on-focus, required)
-                br
-                div(layout="row", layout-align="center center")
-                  md-button(class="md-raised md-warn", ng-href="/") Cancel
-                  md-button#btnSubmit(type="submit", class="md-raised md-primary") Submit
-    md-tab(label="Reports")
-      p These will be totally rad reports
-
+      
 
 
 
